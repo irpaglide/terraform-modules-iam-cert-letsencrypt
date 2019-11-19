@@ -1,5 +1,6 @@
 data "aws_route53_zone" "main" {
   name         = "${var.domain_name}"
+  count = "${length(var.domain_name) > 0 ? 1 : 0}"
 }
 
 provider "acme" {
@@ -21,7 +22,7 @@ resource "acme_certificate" "cert" {
   dns_challenge {
     provider = "route53"
     config = {
-      AWS_HOSTED_ZONE_ID = "${data.aws_route53_zone.main.zone_id}"    
+      AWS_HOSTED_ZONE_ID = "${local.hosted_zone_id}"    
     }
   }
 }

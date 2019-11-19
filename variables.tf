@@ -9,4 +9,10 @@ variable "iam_cert_name" {
 default = "default_certificate"
 }
 
-variable "domain_name" {}
+variable "domain_name" { 
+	default = ""
+}
+
+variable "hosted_zone_id" { 
+	default = ""
+}
