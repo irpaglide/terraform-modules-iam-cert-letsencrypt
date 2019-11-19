@@ -1,8 +1,3 @@
-data "aws_route53_zone" "main" {
-  name         = "${var.domain_name}"
-  count = "${length(var.domain_name) > 0 ? 1 : 0}"
-}
-
 provider "acme" {
   server_url = "https://acme-v02.api.letsencrypt.org/directory"
 }
