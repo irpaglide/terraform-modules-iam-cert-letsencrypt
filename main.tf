@@ -22,7 +22,7 @@ resource "acme_certificate" "cert" {
   dns_challenge {
     provider = "route53"
     config = {
-      AWS_HOSTED_ZONE_ID = "${local.hosted_zone_id}"    
+      AWS_HOSTED_ZONE_ID = "${var.hosted_zone_id}"    
     }
   }
 }
